@@ -5,7 +5,7 @@ const Discord = require("discord.js")
     description: "Een avatar commando!",
     execute(message, args){
         
-      if(message.content.startsWith('!avatar')){
+      if(message.content.startsWith('?avatar')){
             if(message.author.bot) return;
             if(message.channel.type === "dm") return;
     
