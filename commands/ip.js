@@ -14,6 +14,7 @@ const Discord = require("discord.js")
 
   .setThumbnail("https://cdn.discordapp.com/attachments/625650016500842507/759090809835880508/Yin_Yang.png")
 
+  .setColor('#ff0000')
   .setTitle("Minecraft server ip")
   .addFields({ name: "ip:", value: "Momenteel is er geen ip!", inline: false })
   .addFields({ name: "versie:", value: "1.12.2", inline: true })
