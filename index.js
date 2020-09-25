@@ -32,9 +32,13 @@ client.on('message', message =>{
     if(command === 'help'){
         client.commands.get('help').execute(message, args);
      } 
-    //Een help commando
+    //Een avatar commando
     if(command === 'avatar'){
         client.commands.get('avatar').execute(message, args);
+     } 
+         //Een ip commando
+    if(command === 'ip'){
+        client.commands.get('ip').execute(message, args);
      } 
 });
 
