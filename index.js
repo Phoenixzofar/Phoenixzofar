@@ -32,6 +32,10 @@ client.on('message', message =>{
     if(command === 'help'){
         client.commands.get('help').execute(message, args);
      } 
+    //Een help commando
+    if(command === 'avatar'){
+        client.commands.get('avatar').execute(message, args);
+     } 
 });
 
 client.login(process.env.token);
