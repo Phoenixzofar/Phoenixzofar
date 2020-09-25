@@ -9,7 +9,7 @@ module.exports = {
 
         try{
 
-            var text = "Wil je wat commands hier zijn ze en veel plezier ermee ;)"
+            var text = "Wil je wat commands hier zijn ze en veel plezier ermee ;) \n\n ?avatar \n ?ping \n ?ip \n ?botinfo!"
             
             message.author.send(text);
 
