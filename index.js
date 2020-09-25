@@ -48,6 +48,10 @@ client.on('message', message =>{
     if(command === 'botinfo'){
         client.commands.get('botinfo').execute(message, args);
     }
+    //Een purge commando
+    if(command === 'purge'){
+        client.commands.get('purge').execute(message, args);
+    }
     
 });
 
