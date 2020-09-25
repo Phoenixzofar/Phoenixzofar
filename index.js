@@ -44,6 +44,11 @@ client.on('message', message =>{
     if(command === 'ping'){
         client.commands.get('ping').execute(message, args);
     }
+    //Een botinfo commando
+    if(command === 'botinfo'){
+        client.commands.get('botinfo').execute(message, args);
+    }
+    
 });
 
 client.login(process.env.token);
