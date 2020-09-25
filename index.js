@@ -1,34 +1,37 @@
-const discord = require("discord.js");
-const botConfig = require("./botconfig.json");
+const Discord = require('discord.js');
+const client = new Discord.Client();
  
-const client = new discord.Client();
-client.login(botConfig.token);
+const prefix = '?';
+const fs = require('fs');
+
+
+client.commands = new Discord.Collection();
  
-client.on("ready", async () => {
+const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+for(const file of commandFiles){
+    const command = require(`./commands/${file}`);
  
-    console.log(`${client.user.username} is online.`);
+    client.commands.set(command.name, command);
+}
  
-    client.user.setActivity("In onderhoud!", { type: "PLAYING" });
  
+client.once('ready', () => {
+    console.log('Minato is online!');
+    client.user.setActivity('', { type: 'WATCHING' })
+
 });
 
-        client.on('message', message => {
-            if (message.content === '?help') {
-                if(message.author.bot) return;
-                  if(message.channel.type === "dm") return;
-                  message.channel.send('**Dit is wat commands en veel plezier ermee!** \n ?avatar \n ?ip');
+ 
+client.on('message', message =>{
+    if(!message.content.startsWith(prefix) || message.author.bot) return;
+ 
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
 
-            }
-            client.on('message', message => {
-                if (message.content === '?avatar') {
-                    if(message.author.bot) return;
-                      if(message.channel.type === "dm") return;
-                      message.reply(message.author.displayAvatarURL());
-    
-                }
-      
-            });
+    //Een help commando
+    if(command === 'help'){
+        client.commands.get('help').execute(message, args);
+     } 
+});
 
-        });
-
-        client.login(process.env.token);
+client.login(process.env.token);
