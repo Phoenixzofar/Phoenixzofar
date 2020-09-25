@@ -15,6 +15,7 @@ const Discord = require("discord.js")
   .setThumbnail("https://cdn.discordapp.com/attachments/625650016500842507/759090809835880508/Yin_Yang.png")
 
   .setTitle("Bot info")
+  .setColor('#ff0000')
   .addFields({ name: "UserID", value: "752808491541856306", inline: true })
   .addFields({ name: "Discord.js:", value: "v12.3.1", inline: true })
   .addFields({ name: "Node:", value: "v14.9.0", inline: true })
