@@ -40,6 +40,10 @@ client.on('message', message =>{
     if(command === 'ip'){
         client.commands.get('ip').execute(message, args);
      } 
+         //Een ping commando
+    if(command === 'ping'){
+        client.commands.get('ping').execute(message, args);
+    }
 });
 
 client.login(process.env.token);
